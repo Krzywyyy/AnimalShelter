@@ -1,16 +1,16 @@
-package pl.krzywyyy.animalshelter.model.dto;
+package pl.krzywyyy.animalshelter.model.dto.response;
 
-import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-public class EmployeeRequest {
+@Setter
+public class EmployeeResponse {
     private String firstName;
     private String surname;
-    private String email;
     private String phoneNumber;
-    private String password;
+    private String email;
     private Date employmentDate;
+    private Date endDateOfWork;
     private float salary;
 }

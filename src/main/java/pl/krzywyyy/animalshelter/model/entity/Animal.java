@@ -23,12 +23,12 @@ public class Animal extends AbstractEntity {
     @NotBlank(message = "Animal must have a name")
     private String name;
 
-    @PositiveOrZero(message = "Age must be positive or zero")
-    private int age;
-
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Animal type must be specified")
     private AnimalType type;
+
+    @PositiveOrZero(message = "Age must be positive or zero")
+    private int age;
 
     @OneToOne
     @JoinColumn(name = "adoption_id", referencedColumnName = "id")

@@ -1,4 +1,4 @@
-package pl.krzywyyy.animalshelter.model.dto;
+package pl.krzywyyy.animalshelter.model.dto.request;
 
 import lombok.Getter;
 

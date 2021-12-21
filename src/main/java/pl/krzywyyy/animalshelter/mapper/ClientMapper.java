@@ -3,7 +3,7 @@ package pl.krzywyyy.animalshelter.mapper;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import pl.krzywyyy.animalshelter.model.dto.ClientRequest;
+import pl.krzywyyy.animalshelter.model.dto.request.ClientRequest;
 import pl.krzywyyy.animalshelter.model.entity.Client;
 import pl.krzywyyy.animalshelter.repository.ClientRepository;
 

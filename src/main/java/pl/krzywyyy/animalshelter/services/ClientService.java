@@ -1,6 +1,16 @@
 package pl.krzywyyy.animalshelter.services;
 
-import pl.krzywyyy.animalshelter.model.entity.Client;
+import pl.krzywyyy.animalshelter.model.dto.request.ClientRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.ClientResponse;
 
-public interface ClientService extends AbstractService<Client, Integer> {
+import java.util.List;
+
+public interface ClientService {
+    ClientResponse save(ClientRequest clientRequest);
+
+    ClientResponse findById(int id);
+
+    List<ClientResponse> findAll();
+
+    boolean delete(int id);
 }

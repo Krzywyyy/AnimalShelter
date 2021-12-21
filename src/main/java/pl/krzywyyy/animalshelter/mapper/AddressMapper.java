@@ -4,7 +4,7 @@ import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import pl.krzywyyy.animalshelter.model.dto.AddressRequest;
+import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
 import pl.krzywyyy.animalshelter.model.entity.Address;
 import pl.krzywyyy.animalshelter.repository.AddressRepository;
 import pl.krzywyyy.animalshelter.repository.ClientRepository;
