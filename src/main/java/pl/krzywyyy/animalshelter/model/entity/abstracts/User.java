@@ -2,14 +2,12 @@ package pl.krzywyyy.animalshelter.model.entity.abstracts;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.krzywyyy.animalshelter.model.entity.Address;
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @MappedSuperclass
@@ -24,6 +22,10 @@ public abstract class User extends AbstractEntity {
     @NotBlank(message = "Surname cannot be blank")
     private String surname;
 
+    @Column(name = "phone_number")
+    @Pattern(regexp = "^[\\d]{9}$", message = "Phone number must contains 9 digits")
+    private String phoneNumber;
+
     @Email(message = "Email is not unique")
     @NotBlank(message = "Email cannot be blank")
     private String email;
@@ -31,8 +33,4 @@ public abstract class User extends AbstractEntity {
     @Size(min = 8, message = "Password must be at least 8 characters long")
     @NotBlank(message = "Password cannot be empty")
     private String password;
-
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
 }

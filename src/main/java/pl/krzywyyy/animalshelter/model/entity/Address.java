@@ -3,7 +3,6 @@ package pl.krzywyyy.animalshelter.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 import pl.krzywyyy.animalshelter.model.entity.abstracts.AbstractEntity;
-import pl.krzywyyy.animalshelter.model.entity.abstracts.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,6 +37,6 @@ public class Address extends AbstractEntity {
     private String city;
 
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client;
 }
