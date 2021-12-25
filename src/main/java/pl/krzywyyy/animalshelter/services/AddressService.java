@@ -2,15 +2,18 @@ package pl.krzywyyy.animalshelter.services;
 
 import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AddressResponse;
+import pl.krzywyyy.animalshelter.model.dto.update.AddressUpdate;
 
 import java.util.List;
 
 public interface AddressService {
     AddressResponse save(AddressRequest addressRequest);
 
-    AddressResponse findById(int id);
+    AddressResponse findById(int addressId);
 
     List<AddressResponse> findAll();
 
-    boolean delete(int id);
+    AddressResponse update(int addressId, AddressUpdate addressUpdate);
+
+    boolean delete(int addressId);
 }

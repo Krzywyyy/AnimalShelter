@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.AnimalMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AnimalRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AnimalResponse;
+import pl.krzywyyy.animalshelter.model.dto.update.AnimalUpdate;
 import pl.krzywyyy.animalshelter.repository.AnimalRepository;
 import pl.krzywyyy.animalshelter.services.AnimalService;
 
@@ -28,6 +29,11 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     public List<AnimalResponse> findAll() {
+        return null;
+    }
+
+    @Override
+    public AnimalResponse update(int animalId, AnimalUpdate animalUpdate) {
         return null;
     }
 

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.AddressMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AddressResponse;
+import pl.krzywyyy.animalshelter.model.dto.update.AddressUpdate;
 import pl.krzywyyy.animalshelter.repository.AddressRepository;
 import pl.krzywyyy.animalshelter.services.AddressService;
 
@@ -22,7 +23,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public AddressResponse findById(int id) {
+    public AddressResponse findById(int addressId) {
         return null;
     }
 
@@ -32,7 +33,12 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public boolean delete(int id) {
+    public AddressResponse update(int addressId, AddressUpdate addressUpdate) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(int addressId) {
         return false;
     }
 }

@@ -22,7 +22,7 @@ public class AdoptionServiceImpl implements AdoptionService {
     }
 
     @Override
-    public AdoptionResponse findById(int id) {
+    public AdoptionResponse findById(int adoptionId) {
         return null;
     }
 
@@ -32,7 +32,7 @@ public class AdoptionServiceImpl implements AdoptionService {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int adoptionId) {
         return false;
     }
 }

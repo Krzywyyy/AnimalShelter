@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.EmployeeMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeResponse;
+import pl.krzywyyy.animalshelter.model.dto.update.EmployeeUpdate;
 import pl.krzywyyy.animalshelter.repository.EmployeeRepository;
 import pl.krzywyyy.animalshelter.services.EmployeeService;
 
@@ -28,6 +29,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<EmployeeResponse> findAll() {
+        return null;
+    }
+
+    @Override
+    public EmployeeResponse update(int employeeId, EmployeeUpdate employeeUpdate) {
         return null;
     }
 

@@ -8,10 +8,9 @@ import java.util.List;
 public interface AdoptionService {
     AdoptionResponse save(AdoptionRequest adoptionRequest);
 
-    AdoptionResponse findById(int id);
+    AdoptionResponse findById(int adoptionId);
 
     List<AdoptionResponse> findAll();
 
-    boolean delete(int id);
-
+    boolean delete(int adoptionId);
 }
