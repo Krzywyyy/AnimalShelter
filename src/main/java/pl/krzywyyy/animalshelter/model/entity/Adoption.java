@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import java.util.Date;
 
@@ -15,14 +16,22 @@ import java.util.Date;
 @Setter
 @Getter
 public class Adoption extends AbstractEntity {
+    @NotNull
     @PastOrPresent
-    private Date date;
+    private Date adoptionDate;
 
+    @NotNull
     @OneToOne
     @JoinColumn(name = "animal_id", referencedColumnName = "id")
     private Animal animal;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 }

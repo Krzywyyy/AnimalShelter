@@ -3,15 +3,18 @@ package pl.krzywyyy.animalshelter.mapper;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
 import pl.krzywyyy.animalshelter.model.entity.Employee;
-import pl.krzywyyy.animalshelter.repository.EmployeeRepository;
 
 @Mapper(componentModel = "spring",
-        injectionStrategy = InjectionStrategy.CONSTRUCTOR,
-        uses = {EmployeeRepository.class}
+        injectionStrategy = InjectionStrategy.CONSTRUCTOR
 )
 public interface EmployeeMapper {
-    @Mapping(target = "id", ignore = true)
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "endDateOfWork", ignore = true),
+            @Mapping(target = "supervisedAdoptions", ignore = true)
+    })
     Employee requestToEntity(EmployeeRequest employeeRequest);
 }

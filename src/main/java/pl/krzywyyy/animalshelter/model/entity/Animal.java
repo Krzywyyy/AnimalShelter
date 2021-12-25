@@ -20,6 +20,7 @@ import javax.validation.constraints.PositiveOrZero;
 @Getter
 public class Animal extends AbstractEntity {
 
+    @NotNull
     @NotBlank(message = "Animal must have a name")
     private String name;
 
@@ -27,6 +28,7 @@ public class Animal extends AbstractEntity {
     @NotNull(message = "Animal type must be specified")
     private AnimalType type;
 
+    @NotNull
     @PositiveOrZero(message = "Age must be positive or zero")
     private int age;
 

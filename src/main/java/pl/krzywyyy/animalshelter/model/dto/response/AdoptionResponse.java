@@ -9,4 +9,5 @@ public class AdoptionResponse {
     private Date date;
     private int animalId;
     private int clientId;
+    private int employeeId;
 }

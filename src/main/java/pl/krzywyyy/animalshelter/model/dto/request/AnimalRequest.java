@@ -5,6 +5,6 @@ import lombok.Getter;
 @Getter
 public class AnimalRequest {
     private String name;
-    private String animalType;
+    private String type;
     private String age;
 }

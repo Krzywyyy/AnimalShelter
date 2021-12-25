@@ -6,7 +6,8 @@ import java.util.Date;
 
 @Getter
 public class AdoptionRequest {
-    private Date date;
+    private Date adoptionDate;
     private int animalId;
     private int clientId;
+    private int employeeId;
 }
