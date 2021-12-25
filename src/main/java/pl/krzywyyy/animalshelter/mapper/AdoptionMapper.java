@@ -5,6 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.model.dto.request.AdoptionRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.AdoptionResponse;
 import pl.krzywyyy.animalshelter.model.entity.Adoption;
 import pl.krzywyyy.animalshelter.repository.AnimalRepository;
 import pl.krzywyyy.animalshelter.repository.ClientRepository;
@@ -25,4 +26,6 @@ public interface AdoptionMapper {
             @Mapping(target = "id", ignore = true)
     })
     Adoption requestToEntity(AdoptionRequest adoptionRequest);
+
+    AdoptionResponse entityToResponse(Adoption adoption);
 }

@@ -5,6 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.EmployeeResponse;
 import pl.krzywyyy.animalshelter.model.entity.Employee;
 
 @Mapper(componentModel = "spring",
@@ -17,4 +18,6 @@ public interface EmployeeMapper {
             @Mapping(target = "supervisedAdoptions", ignore = true)
     })
     Employee requestToEntity(EmployeeRequest employeeRequest);
+
+    EmployeeResponse entityToResponse(Employee employee);
 }

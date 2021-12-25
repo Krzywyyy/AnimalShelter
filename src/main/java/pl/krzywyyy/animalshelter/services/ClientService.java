@@ -9,11 +9,11 @@ import java.util.List;
 public interface ClientService {
     ClientResponse save(ClientRequest clientRequest);
 
-    ClientResponse findById(int id);
+    ClientResponse findById(int clientId);
 
     List<ClientResponse> findAll();
 
     ClientResponse update(int clientId, ClientUpdate clientUpdate);
 
-    boolean delete(int id);
+    void delete(int clientId);
 }

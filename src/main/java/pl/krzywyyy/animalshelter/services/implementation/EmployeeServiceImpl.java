@@ -10,6 +10,7 @@ import pl.krzywyyy.animalshelter.repository.EmployeeRepository;
 import pl.krzywyyy.animalshelter.services.EmployeeService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +20,25 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeResponse save(EmployeeRequest employeeRequest) {
-        return null;
+        return employeeMapper.entityToResponse(
+                employeeRepository.save(
+                        employeeMapper.requestToEntity(employeeRequest)
+                )
+        );
     }
 
     @Override
-    public EmployeeResponse findById(int id) {
-        return null;
+    public EmployeeResponse findById(int employeeId) {
+        return employeeMapper.entityToResponse(
+                employeeRepository.getById(employeeId)
+        );
     }
 
     @Override
     public List<EmployeeResponse> findAll() {
-        return null;
+        return employeeRepository.findAll().stream()
+                .map(employeeMapper::entityToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -38,7 +47,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int employeeId) {
+        employeeRepository.delete(
+                employeeRepository.getById(employeeId)
+        );
     }
 }

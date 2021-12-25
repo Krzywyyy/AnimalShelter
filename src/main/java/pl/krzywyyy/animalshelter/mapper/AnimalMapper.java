@@ -5,6 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.model.dto.request.AnimalRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.AnimalResponse;
 import pl.krzywyyy.animalshelter.model.entity.Animal;
 
 @Mapper(componentModel = "spring",
@@ -16,4 +17,6 @@ public interface AnimalMapper {
             @Mapping(target = "adoption", ignore = true)
     })
     Animal requestToEntity(AnimalRequest animalRequest);
+
+    AnimalResponse entityToResponse(Animal animal);
 }

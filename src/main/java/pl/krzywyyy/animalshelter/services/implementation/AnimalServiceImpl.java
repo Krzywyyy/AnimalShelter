@@ -10,6 +10,7 @@ import pl.krzywyyy.animalshelter.repository.AnimalRepository;
 import pl.krzywyyy.animalshelter.services.AnimalService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +20,25 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     public AnimalResponse save(AnimalRequest animalRequest) {
-        return null;
+        return animalMapper.entityToResponse(
+                animalRepository.save(
+                        animalMapper.requestToEntity(animalRequest)
+                )
+        );
     }
 
     @Override
-    public AnimalResponse findById(int id) {
-        return null;
+    public AnimalResponse findById(int animalId) {
+        return animalMapper.entityToResponse(
+                animalRepository.getById(animalId)
+        );
     }
 
     @Override
     public List<AnimalResponse> findAll() {
-        return null;
+        return animalRepository.findAll().stream()
+                .map(animalMapper::entityToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -38,7 +47,9 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int animalId) {
+        animalRepository.delete(
+                animalRepository.getById(animalId)
+        );
     }
 }

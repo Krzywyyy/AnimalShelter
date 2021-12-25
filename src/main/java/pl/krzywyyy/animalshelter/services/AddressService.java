@@ -15,5 +15,5 @@ public interface AddressService {
 
     AddressResponse update(int addressId, AddressUpdate addressUpdate);
 
-    boolean delete(int addressId);
+    void delete(int addressId);
 }

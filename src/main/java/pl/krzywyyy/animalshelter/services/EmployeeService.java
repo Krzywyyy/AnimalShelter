@@ -9,11 +9,11 @@ import java.util.List;
 public interface EmployeeService {
     EmployeeResponse save(EmployeeRequest employeeRequest);
 
-    EmployeeResponse findById(int id);
+    EmployeeResponse findById(int employeeId);
 
     List<EmployeeResponse> findAll();
 
     EmployeeResponse update(int employeeId, EmployeeUpdate employeeUpdate);
 
-    boolean delete(int id);
+    void delete(int employeeId);
 }

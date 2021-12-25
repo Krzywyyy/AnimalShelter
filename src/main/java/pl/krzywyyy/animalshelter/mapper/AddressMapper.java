@@ -5,6 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.AddressResponse;
 import pl.krzywyyy.animalshelter.model.entity.Address;
 import pl.krzywyyy.animalshelter.repository.ClientRepository;
 import pl.krzywyyy.animalshelter.repository.jpamapstructfix.ById;
@@ -19,4 +20,6 @@ public interface AddressMapper {
             @Mapping(target = "id", ignore = true)
     })
     Address requestToEntity(AddressRequest addressRequest);
+
+    AddressResponse entityToResponse(Address address);
 }

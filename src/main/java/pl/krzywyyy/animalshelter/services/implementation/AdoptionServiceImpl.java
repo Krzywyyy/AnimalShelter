@@ -9,6 +9,7 @@ import pl.krzywyyy.animalshelter.repository.AdoptionRepository;
 import pl.krzywyyy.animalshelter.services.AdoptionService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,21 +19,31 @@ public class AdoptionServiceImpl implements AdoptionService {
 
     @Override
     public AdoptionResponse save(AdoptionRequest adoptionRequest) {
-        return null;
+        return adoptionMapper.entityToResponse(
+                adoptionRepository.save(
+                        adoptionMapper.requestToEntity(adoptionRequest)
+                )
+        );
     }
 
     @Override
     public AdoptionResponse findById(int adoptionId) {
-        return null;
+        return adoptionMapper.entityToResponse(
+                adoptionRepository.getById(adoptionId)
+        );
     }
 
     @Override
     public List<AdoptionResponse> findAll() {
-        return null;
+        return adoptionRepository.findAll().stream()
+                .map(adoptionMapper::entityToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public boolean delete(int adoptionId) {
-        return false;
+    public void delete(int adoptionId) {
+        adoptionRepository.delete(
+                adoptionRepository.getById(adoptionId)
+        );
     }
 }

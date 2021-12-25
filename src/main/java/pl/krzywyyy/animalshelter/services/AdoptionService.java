@@ -12,5 +12,5 @@ public interface AdoptionService {
 
     List<AdoptionResponse> findAll();
 
-    boolean delete(int adoptionId);
+    void delete(int adoptionId);
 }

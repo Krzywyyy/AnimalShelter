@@ -10,6 +10,7 @@ import pl.krzywyyy.animalshelter.repository.AddressRepository;
 import pl.krzywyyy.animalshelter.services.AddressService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +20,25 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public AddressResponse save(AddressRequest addressRequest) {
-        return null;
+        return addressMapper.entityToResponse(
+                addressRepository.save(
+                        addressMapper.requestToEntity(addressRequest)
+                )
+        );
     }
 
     @Override
     public AddressResponse findById(int addressId) {
-        return null;
+        return addressMapper.entityToResponse(
+                addressRepository.getById(addressId)
+        );
     }
 
     @Override
     public List<AddressResponse> findAll() {
-        return null;
+        return addressRepository.findAll().stream()
+                .map(addressMapper::entityToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -38,7 +47,9 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public boolean delete(int addressId) {
-        return false;
+    public void delete(int addressId) {
+        addressRepository.delete(
+                addressRepository.getById(addressId)
+        );
     }
 }

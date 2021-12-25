@@ -10,6 +10,7 @@ import pl.krzywyyy.animalshelter.repository.ClientRepository;
 import pl.krzywyyy.animalshelter.services.ClientService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +20,25 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientResponse save(ClientRequest clientRequest) {
-        return null;
+        return clientMapper.entityToResponse(
+                clientRepository.save(
+                        clientMapper.requestToEntity(clientRequest)
+                )
+        );
     }
 
     @Override
-    public ClientResponse findById(int id) {
-        return null;
+    public ClientResponse findById(int clientId) {
+        return clientMapper.entityToResponse(
+                clientRepository.getById(clientId)
+        );
     }
 
     @Override
     public List<ClientResponse> findAll() {
-        return null;
+        return clientRepository.findAll().stream()
+                .map(clientMapper::entityToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -38,7 +47,9 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int clientId) {
+        clientRepository.delete(
+                clientRepository.getById(clientId)
+        );
     }
 }
