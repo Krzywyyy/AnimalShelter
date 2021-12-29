@@ -32,13 +32,13 @@ public class AddressController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
-    public List<AddressResponse> getAll() {
+    public List<AddressResponse> findAll() {
         return addressService.findAll();
     }
 
     @GetMapping("/{addressId}")
     @ResponseStatus(HttpStatus.FOUND)
-    public AddressResponse getOne(@PathVariable int addressId) {
+    public AddressResponse findById(@PathVariable int addressId) {
         return addressService.findById(addressId);
     }
 

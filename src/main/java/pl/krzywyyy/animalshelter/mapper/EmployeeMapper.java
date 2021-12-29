@@ -5,6 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.EmployeeDetails;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeResponse;
 import pl.krzywyyy.animalshelter.model.entity.Employee;
 
@@ -20,4 +21,6 @@ public interface EmployeeMapper {
     Employee requestToEntity(EmployeeRequest employeeRequest);
 
     EmployeeResponse entityToResponse(Employee employee);
+
+    EmployeeDetails entityToDetails(Employee employee);
 }

@@ -30,13 +30,13 @@ public class AdoptionController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
-    public List<AdoptionResponse> getAll() {
+    public List<AdoptionResponse> findAll() {
         return adoptionService.findAll();
     }
 
     @GetMapping("/{adoptionId}")
     @ResponseStatus(HttpStatus.FOUND)
-    public AdoptionResponse getOne(@PathVariable int adoptionId) {
+    public AdoptionResponse findById(@PathVariable int adoptionId) {
         return adoptionService.findById(adoptionId);
     }
 

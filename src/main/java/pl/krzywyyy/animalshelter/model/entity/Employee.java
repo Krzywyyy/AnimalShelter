@@ -2,7 +2,7 @@ package pl.krzywyyy.animalshelter.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.krzywyyy.animalshelter.model.entity.abstracts.AbstractEntity;
+import pl.krzywyyy.animalshelter.model.entity.abstracts.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-public class Employee extends AbstractEntity {
+public class Employee extends User {
 
     @NotNull
     @Column(name = "employment_date")

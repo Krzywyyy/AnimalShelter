@@ -6,6 +6,7 @@ import pl.krzywyyy.animalshelter.mapper.AnimalMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AnimalRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AnimalResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.AnimalUpdate;
+import pl.krzywyyy.animalshelter.model.entity.Animal;
 import pl.krzywyyy.animalshelter.repository.AnimalRepository;
 import pl.krzywyyy.animalshelter.services.AnimalService;
 
@@ -43,7 +44,10 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     public AnimalResponse update(int animalId, AnimalUpdate animalUpdate) {
-        return null;
+        final Animal animal = animalRepository.getById(animalId);
+        animal.setName(animalUpdate.getName());
+        final Animal updated = animalRepository.saveAndFlush(animal);
+        return animalMapper.entityToResponse(updated);
     }
 
     @Override

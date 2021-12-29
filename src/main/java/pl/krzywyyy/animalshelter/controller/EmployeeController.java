@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
+import pl.krzywyyy.animalshelter.model.dto.response.EmployeeDetails;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.EmployeeUpdate;
 import pl.krzywyyy.animalshelter.services.EmployeeService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -32,13 +34,13 @@ public class EmployeeController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
-    public List<EmployeeResponse> getAll() {
+    public List<EmployeeResponse> findAll() {
         return employeeService.findAll();
     }
 
     @GetMapping("/{employeeId}")
     @ResponseStatus(HttpStatus.FOUND)
-    public EmployeeResponse getOne(@PathVariable int employeeId) {
+    public EmployeeResponse findById(@PathVariable int employeeId) {
         return employeeService.findById(employeeId);
     }
 
@@ -46,6 +48,18 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.OK)
     public EmployeeResponse update(@PathVariable int employeeId, @RequestBody EmployeeUpdate employeeUpdate) {
         return employeeService.update(employeeId, employeeUpdate);
+    }
+
+    @PutMapping("/{employeeId}/dismiss")
+    @ResponseStatus(HttpStatus.OK)
+    public EmployeeDetails dismiss(@PathVariable int employeeId, @RequestBody Date dismissalDate) {
+        return employeeService.dismiss(employeeId, dismissalDate);
+    }
+
+    @PutMapping("/{employeeId}/uec")
+    @ResponseStatus(HttpStatus.OK)
+    public EmployeeDetails updateEmploymentConditions(@PathVariable int employeeId, @RequestBody EmployeeUpdate employeeUpdate) {
+        return employeeService.updateEmploymentConditions(employeeId, employeeUpdate);
     }
 
     @DeleteMapping("/{employeeId}")

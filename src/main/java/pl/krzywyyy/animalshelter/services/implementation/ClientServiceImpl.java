@@ -6,6 +6,7 @@ import pl.krzywyyy.animalshelter.mapper.ClientMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.ClientRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.ClientResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.ClientUpdate;
+import pl.krzywyyy.animalshelter.model.entity.Client;
 import pl.krzywyyy.animalshelter.repository.ClientRepository;
 import pl.krzywyyy.animalshelter.services.ClientService;
 
@@ -43,7 +44,13 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientResponse update(int clientId, ClientUpdate clientUpdate) {
-        return null;
+        final Client client = clientRepository.getById(clientId);
+        client.setFirstName(clientUpdate.getFirstName());
+        client.setSurname(clientUpdate.getSurname());
+        client.setPhoneNumber(clientUpdate.getPhoneNumber());
+        client.setEmail(clientUpdate.getEmail());
+        final Client updated = clientRepository.saveAndFlush(client);
+        return clientMapper.entityToResponse(updated);
     }
 
     @Override

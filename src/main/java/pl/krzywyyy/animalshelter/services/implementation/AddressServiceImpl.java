@@ -6,6 +6,7 @@ import pl.krzywyyy.animalshelter.mapper.AddressMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AddressResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.AddressUpdate;
+import pl.krzywyyy.animalshelter.model.entity.Address;
 import pl.krzywyyy.animalshelter.repository.AddressRepository;
 import pl.krzywyyy.animalshelter.services.AddressService;
 
@@ -43,7 +44,14 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public AddressResponse update(int addressId, AddressUpdate addressUpdate) {
-        return null;
+        final Address address = addressRepository.getById(addressId);
+        address.setStreetName(addressUpdate.getStreetName());
+        address.setBuildingNumber(addressUpdate.getBuildingNumber());
+        address.setApartmentNumber(addressUpdate.getApartmentNumber());
+        address.setPostalCode(addressUpdate.getPostalCode());
+        address.setCity(addressUpdate.getCity());
+        final Address updated = addressRepository.saveAndFlush(address);
+        return addressMapper.entityToResponse(updated);
     }
 
     @Override

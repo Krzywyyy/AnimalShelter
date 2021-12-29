@@ -32,13 +32,13 @@ public class AnimalController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
-    public List<AnimalResponse> getAll() {
+    public List<AnimalResponse> findAll() {
         return animalService.findAll();
     }
 
     @GetMapping("/{animalId}")
     @ResponseStatus(HttpStatus.FOUND)
-    public AnimalResponse getOne(@PathVariable int animalId) {
+    public AnimalResponse findById(@PathVariable int animalId) {
         return animalService.findById(animalId);
     }
 

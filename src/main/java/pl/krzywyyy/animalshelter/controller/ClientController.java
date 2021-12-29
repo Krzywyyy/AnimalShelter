@@ -32,13 +32,13 @@ public class ClientController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
-    public List<ClientResponse> getAll() {
+    public List<ClientResponse> findAll() {
         return clientService.findAll();
     }
 
     @GetMapping("/{clientId}")
     @ResponseStatus(HttpStatus.FOUND)
-    public ClientResponse getOne(@PathVariable int clientId) {
+    public ClientResponse findById(@PathVariable int clientId) {
         return clientService.findById(clientId);
     }
 
