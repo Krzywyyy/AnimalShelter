@@ -3,8 +3,8 @@ CREATE TABLE client
     id SERIAL PRIMARY KEY NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
-    phone_number CHAR(9),
-    email VARCHAR(255) NOT NULL,
+    phone_number CHAR(9) UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
 
@@ -25,8 +25,8 @@ CREATE TABLE employee
     id SERIAL PRIMARY KEY NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(9),
-    email VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(9) UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     employment_date TIMESTAMP NOT NULL,
     end_date_of_work TIMESTAMP,
