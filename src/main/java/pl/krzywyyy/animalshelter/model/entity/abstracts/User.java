@@ -30,7 +30,7 @@ public abstract class User extends AbstractEntity {
     private String phoneNumber;
 
     @NotNull
-    @Email(message = "Email is not unique")
+    @Email(message = "Email is not valid")
     @NotBlank(message = "Email cannot be blank")
     private String email;
 
