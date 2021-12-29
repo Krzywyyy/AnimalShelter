@@ -49,7 +49,7 @@ public class ClientServiceImpl implements ClientService {
         client.setSurname(clientUpdate.getSurname());
         client.setPhoneNumber(clientUpdate.getPhoneNumber());
         client.setEmail(clientUpdate.getEmail());
-        final Client updated = clientRepository.saveAndFlush(client);
+        final Client updated = clientRepository.save(client);
         return clientMapper.entityToResponse(updated);
     }
 

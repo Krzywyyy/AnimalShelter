@@ -46,7 +46,7 @@ public class AnimalServiceImpl implements AnimalService {
     public AnimalResponse update(int animalId, AnimalUpdate animalUpdate) {
         final Animal animal = animalRepository.getById(animalId);
         animal.setName(animalUpdate.getName());
-        final Animal updated = animalRepository.saveAndFlush(animal);
+        final Animal updated = animalRepository.save(animal);
         return animalMapper.entityToResponse(updated);
     }
 
