@@ -31,6 +31,11 @@ public class Employee extends AbstractEntity {
     private Date endDateOfWork;
 
     @NotNull
+    @Column(name = "job_position")
+    @NotBlank(message = "Employee must have job position")
+    private String jobPosition;
+
+    @NotNull
     @Positive(message = "Salary must be positive")
     private float salary;
 

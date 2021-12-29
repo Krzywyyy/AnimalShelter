@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.krzywyyy.animalshelter.model.entity.abstracts.AbstractEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,6 +19,7 @@ import java.util.Date;
 public class Adoption extends AbstractEntity {
     @NotNull
     @PastOrPresent
+    @Column(name = "adoption_date")
     private Date adoptionDate;
 
     @NotNull

@@ -12,5 +12,6 @@ public class EmployeeRequest {
     private String phoneNumber;
     private String password;
     private Date employmentDate;
+    private String jobPosition;
     private float salary;
 }

@@ -5,5 +5,4 @@ import lombok.Getter;
 @Getter
 public class AnimalUpdate {
     private String name;
-    private int age;
 }

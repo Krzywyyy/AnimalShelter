@@ -12,5 +12,6 @@ public class EmployeeResponse {
     private String email;
     private Date employmentDate;
     private Date endDateOfWork;
+    private String jobPosition;
     private float salary;
 }

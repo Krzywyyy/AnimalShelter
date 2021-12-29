@@ -11,5 +11,6 @@ public class EmployeeUpdate {
     private String phoneNumber;
     private String email;
     private Date endDateOfWork;
+    private String jobPosition;
     private float salary;
 }
