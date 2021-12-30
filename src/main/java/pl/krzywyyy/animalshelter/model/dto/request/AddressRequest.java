@@ -1,8 +1,10 @@
 package pl.krzywyyy.animalshelter.model.dto.request;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class AddressRequest {
     private String streetName;
     private String buildingNumber;

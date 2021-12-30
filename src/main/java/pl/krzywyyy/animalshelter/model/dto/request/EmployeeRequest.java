@@ -1,10 +1,12 @@
 package pl.krzywyyy.animalshelter.model.dto.request;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 @Getter
+@ToString
 public class EmployeeRequest {
     private String firstName;
     private String surname;
