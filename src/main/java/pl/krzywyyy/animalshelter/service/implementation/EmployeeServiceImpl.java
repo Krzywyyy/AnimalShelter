@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.service.implementation;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.EmployeeMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
+    private final Logger logger;
 
     @Override
     public EmployeeResponse save(EmployeeRequest employeeRequest) {

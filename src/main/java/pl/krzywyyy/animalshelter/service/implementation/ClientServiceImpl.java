@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.service.implementation;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.ClientMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.ClientRequest;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
+    private final Logger logger;
 
     @Override
     public ClientResponse save(ClientRequest clientRequest) {

@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.service.implementation;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.AddressMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
@@ -20,26 +21,28 @@ public class AddressServiceImpl implements AddressService {
     private final AddressRepository addressRepository;
     private final AddressMapper addressMapper;
     private final AddressValidator addressValidator;
+    private final Logger logger;
 
     @Override
     public AddressResponse save(AddressRequest addressRequest) {
-        return addressMapper.entityToResponse(
-                addressRepository.save(
-                        addressMapper.requestToEntity(addressRequest)
-                )
-        );
+        logger.debug(String.format("Saving address = [%s] to database", addressRequest.toString()));
+        final Address newAddress = addressMapper.requestToEntity(addressRequest);
+        final Address updated = addressRepository.save(newAddress);
+        logger.debug(String.format("Address successfully created with id = [%s]", updated.getId()));
+        return addressMapper.entityToResponse(updated);
     }
 
     @Override
     public AddressResponse findById(int addressId) {
-        return addressMapper.entityToResponse(
-                addressRepository.getById(addressId)
-        );
+        logger.debug(String.format("Looking for address with id = [%s] in database", addressId));
+        final Address address = addressRepository.getById(addressId);
+        return addressMapper.entityToResponse(address);
     }
 
     @Override
     public List<AddressResponse> findAll() {
-        return addressRepository.findAll().stream()
+        final List<Address> addresses = addressRepository.findAll();
+        return addresses.stream()
                 .map(addressMapper::entityToResponse)
                 .collect(Collectors.toList());
     }
@@ -60,8 +63,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public void delete(int addressId) {
-        addressRepository.delete(
-                addressRepository.getById(addressId)
-        );
+        final Address address = addressRepository.getById(addressId);
+        addressRepository.delete(address);
     }
 }

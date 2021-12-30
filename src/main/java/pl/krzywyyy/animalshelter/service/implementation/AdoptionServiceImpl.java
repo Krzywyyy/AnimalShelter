@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.service.implementation;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mapper.AdoptionMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AdoptionRequest;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 public class AdoptionServiceImpl implements AdoptionService {
     private final AdoptionRepository adoptionRepository;
     private final AdoptionMapper adoptionMapper;
+    private final Logger logger;
 
     @Override
     public AdoptionResponse save(AdoptionRequest adoptionRequest) {
