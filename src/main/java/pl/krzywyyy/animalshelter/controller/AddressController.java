@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,34 +24,40 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AddressController {
     private final AddressService addressService;
+    private final Logger logger;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AddressResponse save(@RequestBody AddressRequest addressRequest) {
+        logger.debug(String.format("[HTTP_POST]: Create new address = [%s]", addressRequest.toString()));
         return addressService.save(addressRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
     public List<AddressResponse> findAll() {
+        logger.debug("[HTTP_GET]: Listing all addresses");
         return addressService.findAll();
     }
 
     @GetMapping("/{addressId}")
     @ResponseStatus(HttpStatus.FOUND)
     public AddressResponse findById(@PathVariable int addressId) {
+        logger.debug(String.format("[HTTP_GET]: Find address with id = [%s]", addressId));
         return addressService.findById(addressId);
     }
 
     @PutMapping("/{addressId}")
     @ResponseStatus(HttpStatus.OK)
     public AddressResponse update(@PathVariable int addressId, @RequestBody AddressUpdate addressUpdate) {
+        logger.debug(String.format("[HTTP_PUT]: Updating address with id = [%s], new values = [%s]", addressId, addressUpdate.toString()));
         return addressService.update(addressId, addressUpdate);
     }
 
     @DeleteMapping("/{addressId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int addressId) {
+        logger.debug(String.format("[HTTP_DELETE]: Deleting address with id = [%s]", addressId));
         addressService.delete(addressId);
     }
 }

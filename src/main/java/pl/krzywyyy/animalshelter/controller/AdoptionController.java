@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,28 +22,33 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdoptionController {
     private final AdoptionService adoptionService;
+    private final Logger logger;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AdoptionResponse save(@RequestBody AdoptionRequest adoptionRequest) {
+        logger.debug(String.format("[HTTP_POST]: Create new adoption = [%s]", adoptionRequest.toString()));
         return adoptionService.save(adoptionRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
     public List<AdoptionResponse> findAll() {
+        logger.debug("[HTTP_GET]: Listing all adoptions");
         return adoptionService.findAll();
     }
 
     @GetMapping("/{adoptionId}")
     @ResponseStatus(HttpStatus.FOUND)
     public AdoptionResponse findById(@PathVariable int adoptionId) {
+        logger.debug(String.format("[HTTP_GET]: Find adoption with id = [%s]", adoptionId));
         return adoptionService.findById(adoptionId);
     }
 
     @DeleteMapping("/{adoptionId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int adoptionId) {
+        logger.debug(String.format("[HTTP_DELETE]: Deleting adoption with id = [%s]", adoptionId));
         adoptionService.delete(adoptionId);
     }
 }

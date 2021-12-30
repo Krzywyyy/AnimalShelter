@@ -1,6 +1,7 @@
 package pl.krzywyyy.animalshelter.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,34 +24,40 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
+    private final Logger logger;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ClientResponse save(@RequestBody ClientRequest clientRequest) {
+        logger.debug(String.format("[HTTP_POST]: Create new client = [%s]", clientRequest.toString()));
         return clientService.save(clientRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
     public List<ClientResponse> findAll() {
+        logger.debug("[HTTP_GET]: Listing all clients");
         return clientService.findAll();
     }
 
     @GetMapping("/{clientId}")
     @ResponseStatus(HttpStatus.FOUND)
     public ClientResponse findById(@PathVariable int clientId) {
+        logger.debug(String.format("[HTTP_GET]: Find client with id = [%s]", clientId));
         return clientService.findById(clientId);
     }
 
     @PutMapping("/{clientId}")
     @ResponseStatus(HttpStatus.OK)
     public ClientResponse update(@PathVariable int clientId, @RequestBody ClientUpdate clientUpdate) {
+        logger.debug(String.format("[HTTP_PUT]: Updating client with id = [%s], new values = [%s]", clientId, clientUpdate.toString()));
         return clientService.update(clientId, clientUpdate);
     }
 
     @DeleteMapping("/{clientId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int clientId) {
+        logger.debug(String.format("[HTTP_DELETE]: Deleting client with id = [%s]", clientId));
         clientService.delete(clientId);
     }
 }
