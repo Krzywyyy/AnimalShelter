@@ -16,7 +16,7 @@ import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeDetails;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.EmployeeUpdate;
-import pl.krzywyyy.animalshelter.services.EmployeeService;
+import pl.krzywyyy.animalshelter.service.EmployeeService;
 
 import java.util.Date;
 import java.util.List;

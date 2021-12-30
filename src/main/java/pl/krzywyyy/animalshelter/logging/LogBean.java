@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LoggerProducer {
+public class LogBean {
     @Bean
-    public Logger produceLogger(InjectionPoint injectionPoint) {
+    public Logger logger(InjectionPoint injectionPoint) {
         return LogManager.getLogger(
                 injectionPoint
                         .getMember()

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.krzywyyy.animalshelter.model.dto.request.AddressRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AddressResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.AddressUpdate;
-import pl.krzywyyy.animalshelter.services.AddressService;
+import pl.krzywyyy.animalshelter.service.AddressService;
 
 import java.util.List;
 

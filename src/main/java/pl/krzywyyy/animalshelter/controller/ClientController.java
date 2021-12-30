@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.krzywyyy.animalshelter.model.dto.request.ClientRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.ClientResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.ClientUpdate;
-import pl.krzywyyy.animalshelter.services.ClientService;
+import pl.krzywyyy.animalshelter.service.ClientService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package pl.krzywyyy.animalshelter.services;
+package pl.krzywyyy.animalshelter.service;
 
 import pl.krzywyyy.animalshelter.model.dto.request.AdoptionRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AdoptionResponse;

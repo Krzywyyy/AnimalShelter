@@ -1,4 +1,4 @@
-package pl.krzywyyy.animalshelter.services.implementation;
+package pl.krzywyyy.animalshelter.service.implementation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import pl.krzywyyy.animalshelter.mapper.AdoptionMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AdoptionRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AdoptionResponse;
 import pl.krzywyyy.animalshelter.repository.AdoptionRepository;
-import pl.krzywyyy.animalshelter.services.AdoptionService;
+import pl.krzywyyy.animalshelter.service.AdoptionService;
 
 import java.util.List;
 import java.util.stream.Collectors;

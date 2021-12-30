@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.krzywyyy.animalshelter.model.dto.request.AdoptionRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AdoptionResponse;
-import pl.krzywyyy.animalshelter.services.AdoptionService;
+import pl.krzywyyy.animalshelter.service.AdoptionService;
 
 import java.util.List;
 

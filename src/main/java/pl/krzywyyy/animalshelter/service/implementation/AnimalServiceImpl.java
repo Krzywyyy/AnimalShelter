@@ -1,4 +1,4 @@
-package pl.krzywyyy.animalshelter.services.implementation;
+package pl.krzywyyy.animalshelter.service.implementation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,7 @@ import pl.krzywyyy.animalshelter.model.dto.response.AnimalResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.AnimalUpdate;
 import pl.krzywyyy.animalshelter.model.entity.Animal;
 import pl.krzywyyy.animalshelter.repository.AnimalRepository;
-import pl.krzywyyy.animalshelter.services.AnimalService;
+import pl.krzywyyy.animalshelter.service.AnimalService;
 
 import java.util.List;
 import java.util.stream.Collectors;
