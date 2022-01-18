@@ -12,7 +12,7 @@ INSERT INTO client (first_name, surname, phone_number, email, password) VALUES (
 
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Pruszkowska', '13C', '21', '01-231', 'Warszawa', 1);
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Katowicka', '5B', '123', '04-264', 'Warszawa', 2);
-INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Nowatorska', '2', '43', '00-102', 'Warszawa,' 3);
+INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Nowatorska', '2', '43', '00-102', 'Warszawa', 3);
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Czumy', '64', '1', '02-112', 'Warszawa', 4);
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Czluchowska', '12', '421', '05-221', 'Warszawa', 5);
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Wilanowska', '31', '12', '02-231', 'Warszawa', 6);
@@ -22,26 +22,26 @@ INSERT INTO address (street_name, building_number, apartment_number, postal_code
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Powstancow Slaskich', '15', '1', '03-433', 'Warszawa', 10);
 INSERT INTO address (street_name, building_number, apartment_number, postal_code, city, client_id) VALUES ('Marymoncka', '1', '42', '06-223', 'Warszawa', 11);
 
-INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, salary) VALUES ('Mariusz', 'Bober', '766545545', 'mariuszbober@op.pl', 'Haslo123!', '2017-09-01 00:00:00', 3600);
-INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, salary) VALUES ('Marek', 'Nosal', '665487548', 'mareknosal@op.pl', 'Haslo123!', '2015-02-01 00:00:00', 4500);
-INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, salary) VALUES ('Michal', 'Balak', '746352412', 'michalbalak@op.pl', 'Haslo123!', '2014-07-01 00:00:00', 5400);
-INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, salary) VALUES ('Rafal', 'Norek', '666669874', 'rafalnorek@op.pl', 'Haslo123!', '2013-03-01 00:00:00', 6300);
-INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, salary) VALUES ('Konrad', 'Borowicz', '611211311', 'konradborowicz@op.pl', 'Haslo123!', '2010-04-01 00:00:00', 11000);
+INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, job_position, salary) VALUES ('Mariusz', 'Bober', '766545545', 'mariuszbober@op.pl', 'Haslo123!', '2017-09-01', 'Pracownik', 3600);
+INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, job_position, salary) VALUES ('Marek', 'Nosal', '665487548', 'mareknosal@op.pl', 'Haslo123!', '2015-02-01', 'Pracownik', 4500);
+INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, job_position, salary) VALUES ('Michal', 'Balak', '746352412', 'michalbalak@op.pl', 'Haslo123!', '2014-07-01', 'Pracownik', 5400);
+INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, job_position, salary) VALUES ('Rafal', 'Norek', '666669874', 'rafalnorek@op.pl', 'Haslo123!', '2013-03-01', 'Kierownik', 6300);
+INSERT INTO employee (first_name, surname, phone_number, email, password, employment_date, job_position, salary) VALUES ('Konrad', 'Borowicz', '611211311', 'konradborowicz@op.pl', 'Haslo123!', '2010-04-01', 'Prezes', 11000);
 
-INSERT INTO animal (name, type, age) VALUES ('Benek', 'Pies', 2);
-INSERT INTO animal (name, type, age) VALUES ('Rocky', 'Kot', 1);
-INSERT INTO animal (name, type, age) VALUES ('Szynka', 'Pies', 2);
-INSERT INTO animal (name, type, age) VALUES ('Pasztet', 'Pies', 4);
-INSERT INTO animal (name, type, age) VALUES ('Alfons', 'Kot', 2);
-INSERT INTO animal (name, type, age) VALUES ('Champion', 'Kot', 1);
-INSERT INTO animal (name, type, age) VALUES ('Jabcok', 'Kot', 4);
-INSERT INTO animal (name, type, age) VALUES ('Alkus', 'Zajac', 5);
-INSERT INTO animal (name, type, age) VALUES ('Rurek', 'Pies', 4);
-INSERT INTO animal (name, type, age) VALUES ('Antek', 'Zajac', 1);
-INSERT INTO animal (name, type, age) VALUES ('Bobek', 'Zajac', 1);
-INSERT INTO animal (name, type, age) VALUES ('Jurek', 'Kot', 6);
-INSERT INTO animal (name, type, age) VALUES ('Kalina', 'Pies', 1);
-INSERT INTO animal (name, type, age) VALUES ('Misia', 'Pies', 2);
+INSERT INTO animal (name, type, birth_date) VALUES ('Benek', 'Pies', '2017-09-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Rocky', 'Kot', '2019-01-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Szynka', 'Pies', '2020-11-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Pasztet', 'Pies', '2021-12-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Alfons', 'Kot', '2016-11-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Champion', 'Kot', '2015-10-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Jabcok', 'Kot', '2017-08-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Alkus', 'Zajac', '2018-05-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Rurek', 'Pies', '2017-05-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Antek', 'Zajac', '2019-12-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Bobek', 'Zajac', '2019-03-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Jurek', 'Kot', '2021-05-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Kalina', 'Pies', '2021-02-01');
+INSERT INTO animal (name, type, birth_date) VALUES ('Misia', 'Pies', '2013-03-01');
 
 INSERT INTO adoption (adoption_date, animal_id, client_id, employee_id) VALUES ('2014-10-11 10:00:00', 1, 1, 1);
 INSERT INTO adoption (adoption_date, animal_id, client_id, employee_id) VALUES ('2015-11-02 10:00:00', 2, 2, 2);
