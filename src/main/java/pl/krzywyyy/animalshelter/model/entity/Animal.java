@@ -50,6 +50,9 @@ public class Animal extends AbstractEntity {
 
     @PostLoad
     private void calculateAge() {
+        if (birthDate == null) {
+            return;
+        }
         final LocalDate birthDateLocal = LocalDate.ofInstant(birthDate.toInstant(), ZoneId.systemDefault());
         this.age = Period.between(birthDateLocal, LocalDate.now()).getYears();
     }
