@@ -1,10 +1,12 @@
 package pl.krzywyyy.animalshelter.model.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressResponse {
     private String streetName;
     private String buildingNumber;
