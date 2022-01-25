@@ -9,7 +9,8 @@ import pl.krzywyyy.animalshelter.model.dto.response.ClientResponse;
 import pl.krzywyyy.animalshelter.model.entity.Client;
 
 @Mapper(componentModel = "spring",
-        injectionStrategy = InjectionStrategy.CONSTRUCTOR
+        injectionStrategy = InjectionStrategy.CONSTRUCTOR,
+        uses = AbstractMapper.class
 )
 public interface ClientMapper {
     @Mappings({
@@ -19,5 +20,10 @@ public interface ClientMapper {
     })
     Client requestToEntity(ClientRequest clientRequest);
 
+    @Mappings({
+            @Mapping(source = "addresses", target = "addressesIds"),
+            @Mapping(source = "adoptions", target = "adoptionsIds")
+    }
+    )
     ClientResponse entityToResponse(Client client);
 }

@@ -12,6 +12,6 @@ public class ClientResponse {
     private String surname;
     private String phoneNumber;
     private String email;
-    private List<Integer> addressId;
-    private List<Integer> adoptionIds;
+    private List<Integer> addressesIds;
+    private List<Integer> adoptionsIds;
 }
