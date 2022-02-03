@@ -9,7 +9,7 @@ CREATE TABLE app_user
     employment_date TIMESTAMP,
     end_date_of_work TIMESTAMP,
     job_position VARCHAR(255),
-    salary FLOAT NOT NULL,
+    salary FLOAT,
     user_type VARCHAR(255) NOT NULL
 );
 
