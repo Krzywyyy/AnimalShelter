@@ -6,9 +6,9 @@ CREATE TABLE app_user
     phone_number VARCHAR(9) UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    employment_date TIMESTAMP NOT NULL,
+    employment_date TIMESTAMP,
     end_date_of_work TIMESTAMP,
-    job_position VARCHAR(255) NOT NULL,
+    job_position VARCHAR(255),
     salary FLOAT NOT NULL,
     user_type VARCHAR(255) NOT NULL
 );
