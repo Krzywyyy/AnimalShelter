@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import pl.krzywyyy.animalshelter.security.filters.BasicAuthFilter;
 import pl.krzywyyy.animalshelter.security.filters.JwtAuthFilter;
 import pl.krzywyyy.animalshelter.service.UserService;
 
@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().permitAll()
                 .and()
-                .addFilter(new BasicAuthenticationFilter(authenticationManager()))
+                .addFilter(new BasicAuthFilter(authenticationManager()))
                 .addFilter(new JwtAuthFilter(authenticationManager(), userService))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

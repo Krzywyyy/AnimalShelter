@@ -3,13 +3,15 @@ package pl.krzywyyy.animalshelter.service.implementation;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import pl.krzywyyy.animalshelter.mapper.EmployeeMapper;
+import pl.krzywyyy.animalshelter.mapper.mapstruct.EmployeeMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.EmployeeRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeDetails;
 import pl.krzywyyy.animalshelter.model.dto.response.EmployeeResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.EmployeeUpdate;
 import pl.krzywyyy.animalshelter.model.entity.Employee;
 import pl.krzywyyy.animalshelter.repository.EmployeeRepository;
+import pl.krzywyyy.animalshelter.repository.RoleRepository;
+import pl.krzywyyy.animalshelter.security.roles.SecurityRole;
 import pl.krzywyyy.animalshelter.service.EmployeeService;
 
 import java.util.Date;
@@ -20,16 +22,16 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
+    private final RoleRepository roleRepository;
     private final EmployeeMapper employeeMapper;
     private final Logger logger;
 
     @Override
     public EmployeeResponse save(EmployeeRequest employeeRequest) {
+        final Employee employee = employeeMapper.requestToEntity(employeeRequest);
+        employee.setRoles(List.of(roleRepository.findByName(SecurityRole.ROLE_EMPLOYEE.name())));
         return employeeMapper.entityToResponse(
-                employeeRepository.save(
-                        employeeMapper.requestToEntity(employeeRequest)
-                )
-        );
+                employeeRepository.save(employee));
     }
 
     @Override

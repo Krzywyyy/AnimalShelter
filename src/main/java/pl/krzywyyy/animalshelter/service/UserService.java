@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.krzywyyy.animalshelter.mapper.RoleMapper;
+import pl.krzywyyy.animalshelter.mapper.mapstruct.RoleMapper;
 import pl.krzywyyy.animalshelter.model.entity.abstracts.User;
 import pl.krzywyyy.animalshelter.repository.UserRepository;
 

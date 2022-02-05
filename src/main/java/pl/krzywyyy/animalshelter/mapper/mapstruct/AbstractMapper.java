@@ -1,4 +1,4 @@
-package pl.krzywyyy.animalshelter.mapper;
+package pl.krzywyyy.animalshelter.mapper.mapstruct;
 
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;

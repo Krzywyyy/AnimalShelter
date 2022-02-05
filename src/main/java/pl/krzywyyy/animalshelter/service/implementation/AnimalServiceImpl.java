@@ -3,7 +3,7 @@ package pl.krzywyyy.animalshelter.service.implementation;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import pl.krzywyyy.animalshelter.mapper.AnimalMapper;
+import pl.krzywyyy.animalshelter.mapper.mapstruct.AnimalMapper;
 import pl.krzywyyy.animalshelter.model.dto.request.AnimalRequest;
 import pl.krzywyyy.animalshelter.model.dto.response.AnimalResponse;
 import pl.krzywyyy.animalshelter.model.dto.update.AnimalUpdate;

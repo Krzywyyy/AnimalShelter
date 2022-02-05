@@ -1,7 +1,9 @@
-package pl.krzywyyy.animalshelter.mapper;
+package pl.krzywyyy.animalshelter.mapper.mapstruct;
 
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import pl.krzywyyy.animalshelter.model.entity.Role;
 
@@ -16,4 +18,10 @@ public interface RoleMapper {
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
     }
+
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "users", ignore = true)
+    })
+    Role nameToRole(String name);
 }

@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import pl.krzywyyy.animalshelter.model.dto.response.AuthTokenResponse;
 import pl.krzywyyy.animalshelter.model.entity.abstracts.User;
 import pl.krzywyyy.animalshelter.security.SecurityParameters;
 
@@ -40,11 +41,6 @@ public class BasicAuthFilter extends UsernamePasswordAuthenticationFilter {
         );
     }
 
-//    @PostConstruct
-//    private void setLoginUrl() {
-//        setFilterProcessesUrl(LOGIN_URL);
-//    }
-
     @Override
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
@@ -56,10 +52,15 @@ public class BasicAuthFilter extends UsernamePasswordAuthenticationFilter {
                 .withSubject(email)
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityParameters.TOKEN_EXPIRATION_TIME))
                 .sign(Algorithm.HMAC256(SecurityParameters.SECRET_KEY.getBytes()));
-        response.addHeader(SecurityParameters.AUTHORIZATION_HEADER, SecurityParameters.BEARER_PREFIX + jwt);
-        response.setStatus(204);
+        response.setStatus(HttpServletResponse.SC_OK);
         response.setContentType(SecurityParameters.JSON_CONTENT_TYPE);
         response.setCharacterEncoding(SecurityParameters.UTF_CHARACTER_ENCODING);
+        response.getWriter().write(new ObjectMapper().writeValueAsString(new AuthTokenResponse(jwt)));
         response.getWriter().flush();
     }
+//
+//    @PostConstruct
+//    private void setLoginUrl(){
+//        setFilterProcessesUrl(SecurityParameters.LOGIN_URL);
+//    }
 }
