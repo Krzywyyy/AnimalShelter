@@ -58,9 +58,4 @@ public class BasicAuthFilter extends UsernamePasswordAuthenticationFilter {
         response.getWriter().write(new ObjectMapper().writeValueAsString(new AuthTokenResponse(jwt)));
         response.getWriter().flush();
     }
-//
-//    @PostConstruct
-//    private void setLoginUrl(){
-//        setFilterProcessesUrl(SecurityParameters.LOGIN_URL);
-//    }
 }
