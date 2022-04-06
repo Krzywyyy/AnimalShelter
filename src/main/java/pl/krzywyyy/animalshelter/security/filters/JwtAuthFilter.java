@@ -10,7 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import pl.krzywyyy.animalshelter.security.SecurityParameters;
-import pl.krzywyyy.animalshelter.service.UserService;
+import pl.krzywyyy.animalshelter.services.UserService;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

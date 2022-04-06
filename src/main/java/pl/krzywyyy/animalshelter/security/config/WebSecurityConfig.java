@@ -9,7 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.krzywyyy.animalshelter.security.filters.BasicAuthFilter;
 import pl.krzywyyy.animalshelter.security.filters.JwtAuthFilter;
-import pl.krzywyyy.animalshelter.service.UserService;
+import pl.krzywyyy.animalshelter.services.UserService;
 
 @EnableWebSecurity
 @RequiredArgsConstructor

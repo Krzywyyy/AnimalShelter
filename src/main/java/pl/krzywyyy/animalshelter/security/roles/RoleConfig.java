@@ -2,8 +2,8 @@ package pl.krzywyyy.animalshelter.security.roles;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.krzywyyy.animalshelter.mapper.mapstruct.RoleMapper;
-import pl.krzywyyy.animalshelter.repository.RoleRepository;
+import pl.krzywyyy.animalshelter.mappers.mapstruct.RoleMapper;
+import pl.krzywyyy.animalshelter.repositories.RoleRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;

@@ -9,8 +9,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import pl.krzywyyy.animalshelter.model.dto.response.AuthTokenResponse;
-import pl.krzywyyy.animalshelter.model.entity.abstracts.User;
+import pl.krzywyyy.animalshelter.model.dto.responses.AuthTokenResponse;
+import pl.krzywyyy.animalshelter.model.entities.abstracts.User;
 import pl.krzywyyy.animalshelter.security.SecurityParameters;
 
 import javax.servlet.FilterChain;
