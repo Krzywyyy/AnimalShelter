@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.ClientUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.ClientResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.ClientUpdate;
 import pl.krzywyyy.animalshelter.services.ClientService;
 
 import java.util.List;
@@ -49,9 +49,9 @@ public class ClientController {
 
     @PutMapping("/{clientId}")
     @ResponseStatus(HttpStatus.OK)
-    public ClientResponse update(@PathVariable int clientId, @RequestBody ClientUpdate clientUpdate) {
-        logger.debug(String.format("[HTTP_PUT]: Updating client with id = [%s], new values = [%s]", clientId, clientUpdate.toString()));
-        return clientService.update(clientId, clientUpdate);
+    public ClientResponse update(@PathVariable int clientId, @RequestBody ClientUpdateCommand clientUpdateCommand) {
+        logger.debug(String.format("[HTTP_PUT]: Updating client with id = [%s], new values = [%s]", clientId, clientUpdateCommand.toString()));
+        return clientService.update(clientId, clientUpdateCommand);
     }
 
     @DeleteMapping("/{clientId}")

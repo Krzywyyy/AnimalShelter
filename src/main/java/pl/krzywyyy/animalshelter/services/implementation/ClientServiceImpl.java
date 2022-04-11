@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mappers.mapstruct.ClientMapper;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.ClientUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.ClientResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.ClientUpdate;
 import pl.krzywyyy.animalshelter.model.entities.Client;
 import pl.krzywyyy.animalshelter.repositories.ClientRepository;
 import pl.krzywyyy.animalshelter.repositories.RoleRepository;
@@ -47,12 +47,12 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientResponse update(int clientId, ClientUpdate clientUpdate) {
+    public ClientResponse update(int clientId, ClientUpdateCommand clientUpdateCommand) {
         final Client client = clientRepository.getById(clientId);
-        client.setFirstName(clientUpdate.getFirstName());
-        client.setSurname(clientUpdate.getSurname());
-        client.setPhoneNumber(clientUpdate.getPhoneNumber());
-        client.setEmail(clientUpdate.getEmail());
+        client.setFirstName(clientUpdateCommand.getFirstName());
+        client.setSurname(clientUpdateCommand.getSurname());
+        client.setPhoneNumber(clientUpdateCommand.getPhoneNumber());
+        client.setEmail(clientUpdateCommand.getEmail());
         final Client updated = clientRepository.save(client);
         return clientMapper.entityToResponse(updated);
     }

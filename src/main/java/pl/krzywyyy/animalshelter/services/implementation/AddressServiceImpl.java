@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mappers.mapstruct.AddressMapper;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAddressCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAddressCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.AddressUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AddressResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.AddressUpdate;
 import pl.krzywyyy.animalshelter.model.entities.Address;
 import pl.krzywyyy.animalshelter.repositories.AddressRepository;
 import pl.krzywyyy.animalshelter.services.AddressService;
@@ -48,15 +48,15 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public AddressResponse update(int addressId, AddressUpdate addressUpdate) {
-        addressValidator.validate(addressUpdate);
+    public AddressResponse update(int addressId, AddressUpdateCommand addressUpdateCommand) {
+        addressValidator.validate(addressUpdateCommand);
 
         final Address address = addressRepository.getById(addressId);
-        address.setStreetName(addressUpdate.getStreetName());
-        address.setBuildingNumber(addressUpdate.getBuildingNumber());
-        address.setApartmentNumber(addressUpdate.getApartmentNumber());
-        address.setPostalCode(addressUpdate.getPostalCode());
-        address.setCity(addressUpdate.getCity());
+        address.setStreetName(addressUpdateCommand.getStreetName());
+        address.setBuildingNumber(addressUpdateCommand.getBuildingNumber());
+        address.setApartmentNumber(addressUpdateCommand.getApartmentNumber());
+        address.setPostalCode(addressUpdateCommand.getPostalCode());
+        address.setCity(addressUpdateCommand.getCity());
         final Address updated = addressRepository.save(address);
         return addressMapper.entityToResponse(updated);
     }

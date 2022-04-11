@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateEmployeeCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateEmployeeCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.EmployeeUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.EmployeeDetails;
 import pl.krzywyyy.animalshelter.model.dto.responses.EmployeeResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.EmployeeUpdate;
 import pl.krzywyyy.animalshelter.services.EmployeeService;
 
 import java.util.Date;
@@ -51,9 +51,9 @@ public class EmployeeController {
 
     @PutMapping("/{employeeId}")
     @ResponseStatus(HttpStatus.OK)
-    public EmployeeResponse update(@PathVariable int employeeId, @RequestBody EmployeeUpdate employeeUpdate) {
-        logger.debug(String.format("[HTTP_PUT]: Updating employee with id = [%s], new values = [%s]", employeeId, employeeUpdate.toString()));
-        return employeeService.update(employeeId, employeeUpdate);
+    public EmployeeResponse update(@PathVariable int employeeId, @RequestBody EmployeeUpdateCommand employeeUpdateCommand) {
+        logger.debug(String.format("[HTTP_PUT]: Updating employee with id = [%s], new values = [%s]", employeeId, employeeUpdateCommand.toString()));
+        return employeeService.update(employeeId, employeeUpdateCommand);
     }
 
     @PutMapping("/{employeeId}/dismiss")
@@ -65,9 +65,9 @@ public class EmployeeController {
 
     @PutMapping("/{employeeId}/uec")
     @ResponseStatus(HttpStatus.OK)
-    public EmployeeDetails updateEmploymentConditions(@PathVariable int employeeId, @RequestBody EmployeeUpdate employeeUpdate) {
-        logger.debug(String.format("[HTTP_PUT]: Updating employment conditions of employee with id = [%s], new conditions = [%s]", employeeId, employeeUpdate.toString()));
-        return employeeService.updateEmploymentConditions(employeeId, employeeUpdate);
+    public EmployeeDetails updateEmploymentConditions(@PathVariable int employeeId, @RequestBody EmployeeUpdateCommand employeeUpdateCommand) {
+        logger.debug(String.format("[HTTP_PUT]: Updating employment conditions of employee with id = [%s], new conditions = [%s]", employeeId, employeeUpdateCommand.toString()));
+        return employeeService.updateEmploymentConditions(employeeId, employeeUpdateCommand);
     }
 
     @DeleteMapping("/{employeeId}")

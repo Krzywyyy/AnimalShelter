@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAnimalCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAnimalCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.AnimalUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AnimalResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.AnimalUpdate;
 import pl.krzywyyy.animalshelter.services.AnimalService;
 
 import java.util.List;
@@ -49,9 +49,9 @@ public class AnimalController {
 
     @PutMapping("/{animalId}")
     @ResponseStatus(HttpStatus.OK)
-    public AnimalResponse update(@PathVariable int animalId, @RequestBody AnimalUpdate animalUpdate) {
-        logger.debug(String.format("[HTTP_PUT]: Updating animal with id = [%s], new values = [%s]", animalId, animalUpdate.toString()));
-        return animalService.update(animalId, animalUpdate);
+    public AnimalResponse update(@PathVariable int animalId, @RequestBody AnimalUpdateCommand animalUpdateCommand) {
+        logger.debug(String.format("[HTTP_PUT]: Updating animal with id = [%s], new values = [%s]", animalId, animalUpdateCommand.toString()));
+        return animalService.update(animalId, animalUpdateCommand);
     }
 
     @DeleteMapping("/{animalId}")

@@ -1,4 +1,4 @@
-package pl.krzywyyy.animalshelter.model.dto.commands;
+package pl.krzywyyy.animalshelter.model.dto.commands.create;
 
 import lombok.Getter;
 import lombok.Setter;

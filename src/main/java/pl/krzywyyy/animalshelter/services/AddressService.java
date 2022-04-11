@@ -1,8 +1,8 @@
 package pl.krzywyyy.animalshelter.services;
 
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAddressCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAddressCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.AddressUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AddressResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.AddressUpdate;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface AddressService {
 
     List<AddressResponse> findAll();
 
-    AddressResponse update(int addressId, AddressUpdate addressUpdate);
+    AddressResponse update(int addressId, AddressUpdateCommand addressUpdateCommand);
 
     void delete(int addressId);
 }

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAddressCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAddressCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.AddressUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AddressResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.AddressUpdate;
 import pl.krzywyyy.animalshelter.services.AddressService;
 
 import java.util.List;
@@ -49,9 +49,9 @@ public class AddressController {
 
     @PutMapping("/{addressId}")
     @ResponseStatus(HttpStatus.OK)
-    public AddressResponse update(@PathVariable int addressId, @RequestBody AddressUpdate addressUpdate) {
-        logger.debug(String.format("[HTTP_PUT]: Updating address with id = [%s], new values = [%s]", addressId, addressUpdate.toString()));
-        return addressService.update(addressId, addressUpdate);
+    public AddressResponse update(@PathVariable int addressId, @RequestBody AddressUpdateCommand addressUpdateCommand) {
+        logger.debug(String.format("[HTTP_PUT]: Updating address with id = [%s], new values = [%s]", addressId, addressUpdateCommand.toString()));
+        return addressService.update(addressId, addressUpdateCommand);
     }
 
     @DeleteMapping("/{addressId}")

@@ -1,11 +1,11 @@
-package pl.krzywyyy.animalshelter.model.dto.updates;
+package pl.krzywyyy.animalshelter.model.dto.commands.update;
 
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-public class ClientUpdate {
+public class ClientUpdateCommand {
     private String firstName;
     private String surname;
     private String phoneNumber;

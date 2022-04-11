@@ -1,8 +1,8 @@
 package pl.krzywyyy.animalshelter.services;
 
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.ClientUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.ClientResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.ClientUpdate;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface ClientService {
 
     List<ClientResponse> findAll();
 
-    ClientResponse update(int clientId, ClientUpdate clientUpdate);
+    ClientResponse update(int clientId, ClientUpdateCommand clientUpdateCommand);
 
     void delete(int clientId);
 }

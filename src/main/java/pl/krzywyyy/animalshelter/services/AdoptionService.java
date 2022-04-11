@@ -1,6 +1,6 @@
 package pl.krzywyyy.animalshelter.services;
 
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAdoptionCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAdoptionCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AdoptionResponse;
 
 import java.util.List;

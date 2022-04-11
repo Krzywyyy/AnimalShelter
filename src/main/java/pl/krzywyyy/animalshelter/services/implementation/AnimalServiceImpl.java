@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mappers.mapstruct.AnimalMapper;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAnimalCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAnimalCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.update.AnimalUpdateCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AnimalResponse;
-import pl.krzywyyy.animalshelter.model.dto.updates.AnimalUpdate;
 import pl.krzywyyy.animalshelter.model.entities.Animal;
 import pl.krzywyyy.animalshelter.repositories.AnimalRepository;
 import pl.krzywyyy.animalshelter.services.AnimalService;
@@ -45,9 +45,9 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public AnimalResponse update(int animalId, AnimalUpdate animalUpdate) {
+    public AnimalResponse update(int animalId, AnimalUpdateCommand animalUpdateCommand) {
         final Animal animal = animalRepository.getById(animalId);
-        animal.setName(animalUpdate.getName());
+        animal.setName(animalUpdateCommand.getName());
         final Animal updated = animalRepository.save(animal);
         return animalMapper.entityToResponse(updated);
     }

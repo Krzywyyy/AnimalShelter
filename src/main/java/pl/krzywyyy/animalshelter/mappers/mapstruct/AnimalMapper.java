@@ -4,7 +4,7 @@ import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateAnimalCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAnimalCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AnimalResponse;
 import pl.krzywyyy.animalshelter.model.entities.Animal;
 

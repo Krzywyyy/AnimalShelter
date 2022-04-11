@@ -6,7 +6,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import pl.krzywyyy.animalshelter.mappers.PasswordMapper;
 import pl.krzywyyy.animalshelter.mappers.annotations.PasswordEncoder;
-import pl.krzywyyy.animalshelter.model.dto.commands.CreateClientCommand;
+import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateClientCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.ClientResponse;
 import pl.krzywyyy.animalshelter.model.entities.Client;
 

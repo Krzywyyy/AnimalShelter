@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.krzywyyy.animalshelter.model.entities.abstracts.AbstractEntity;
 import pl.krzywyyy.animalshelter.model.enums.AnimalType;
+import pl.krzywyyy.animalshelter.model.enums.Gender;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +23,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -36,6 +38,9 @@ public class Animal extends AbstractEntity {
     @NotNull(message = "Animal type must be specified")
     private AnimalType type;
 
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
     @PastOrPresent
     @Column(name = "birth_date")
     private Date birthDate;
@@ -43,6 +48,8 @@ public class Animal extends AbstractEntity {
     @Transient
     @PositiveOrZero(message = "Age must be positive or zero")
     private int age;
+
+    private List<String> diseases;
 
     @OneToOne
     @JoinColumn(name = "adoption_id", referencedColumnName = "id")
