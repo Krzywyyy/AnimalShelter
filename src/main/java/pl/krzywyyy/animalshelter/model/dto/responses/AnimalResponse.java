@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +15,7 @@ public class AnimalResponse {
     private String type;
     private String gender;
     private Date birthDate;
-    private String diseases;
+    private List<String> diseases;
     private int age;
-    private Integer adoptionId;
+    private int adoptionId;
 }

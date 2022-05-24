@@ -9,11 +9,15 @@ import pl.krzywyyy.animalshelter.model.dto.responses.AnimalResponse;
 import pl.krzywyyy.animalshelter.model.entities.Animal;
 
 @Mapper(componentModel = "spring",
-        injectionStrategy = InjectionStrategy.CONSTRUCTOR
+        injectionStrategy = InjectionStrategy.CONSTRUCTOR,
+        uses = {
+                DiseaseMapper.class
+        }
 )
 public interface AnimalMapper {
     @Mappings({
             @Mapping(target = "id", ignore = true),
+            @Mapping(target = "age", ignore = true),
             @Mapping(target = "adoption", ignore = true)
     })
     Animal requestToEntity(CreateAnimalCommand createAnimalCommand);

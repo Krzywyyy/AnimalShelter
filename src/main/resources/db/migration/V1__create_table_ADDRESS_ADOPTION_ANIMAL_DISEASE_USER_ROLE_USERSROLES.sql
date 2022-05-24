@@ -30,8 +30,17 @@ CREATE TABLE animal
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     type VARCHAR(255) NOT NULL,
+    gender VARCHAR(255) NOT NULL,
     birth_date TIMESTAMP,
     adoption_id INTEGER
+);
+
+CREATE TABLE disease
+(
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(255),
+    animal_id INTEGER NOT NULL,
+    CONSTRAINT FK_disease_animal FOREIGN KEY (animal_id) REFERENCES animal (id) ON DELETE CASCADE
 );
 
 CREATE TABLE adoption

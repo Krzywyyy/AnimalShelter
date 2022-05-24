@@ -11,7 +11,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PostLoad;
 import javax.persistence.Transient;
@@ -49,7 +51,8 @@ public class Animal extends AbstractEntity {
     @PositiveOrZero(message = "Age must be positive or zero")
     private int age;
 
-    private List<String> diseases;
+    @OneToMany(mappedBy = "animal", fetch = FetchType.EAGER)
+    private List<Disease> diseases;
 
     @OneToOne
     @JoinColumn(name = "adoption_id", referencedColumnName = "id")
