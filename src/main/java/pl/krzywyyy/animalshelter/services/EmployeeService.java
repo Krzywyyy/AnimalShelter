@@ -15,7 +15,7 @@ public interface EmployeeService {
 
     List<EmployeeResponse> findAll();
 
-    EmployeeResponse update(int employeeId, EmployeeUpdateCommand employeeUpdateCommand);
+    void update(int employeeId, EmployeeUpdateCommand employeeUpdateCommand);
 
     EmployeeDetails dismiss(int employeeId, Date dismissalDate);
 

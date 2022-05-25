@@ -47,14 +47,13 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientResponse update(int clientId, ClientUpdateCommand clientUpdateCommand) {
+    public void update(int clientId, ClientUpdateCommand clientUpdateCommand) {
         final Client client = clientRepository.getById(clientId);
         client.setFirstName(clientUpdateCommand.getFirstName());
         client.setSurname(clientUpdateCommand.getSurname());
         client.setPhoneNumber(clientUpdateCommand.getPhoneNumber());
         client.setEmail(clientUpdateCommand.getEmail());
-        final Client updated = clientRepository.save(client);
-        return clientMapper.entityToResponse(updated);
+        clientRepository.save(client);
     }
 
     @Override

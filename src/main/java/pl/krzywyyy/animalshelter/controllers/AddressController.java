@@ -49,9 +49,9 @@ public class AddressController {
 
     @PutMapping("/{addressId}")
     @ResponseStatus(HttpStatus.OK)
-    public AddressResponse update(@PathVariable int addressId, @RequestBody AddressUpdateCommand addressUpdateCommand) {
+    public void update(@PathVariable int addressId, @RequestBody AddressUpdateCommand addressUpdateCommand) {
         logger.debug(String.format("[HTTP_PUT]: Updating address with id = [%s], new values = [%s]", addressId, addressUpdateCommand.toString()));
-        return addressService.update(addressId, addressUpdateCommand);
+        addressService.update(addressId, addressUpdateCommand);
     }
 
     @DeleteMapping("/{addressId}")

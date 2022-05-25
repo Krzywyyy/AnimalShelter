@@ -43,11 +43,10 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public AnimalResponse update(int animalId, AnimalUpdateCommand animalUpdateCommand) {
+    public void update(int animalId, AnimalUpdateCommand animalUpdateCommand) {
         final Animal animal = animalRepository.getById(animalId);
         animal.setName(animalUpdateCommand.getName());
-        final Animal updated = animalRepository.save(animal);
-        return animalMapper.entityToResponse(updated);
+        animalRepository.save(animal);
     }
 
     @Override

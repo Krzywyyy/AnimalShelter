@@ -13,7 +13,7 @@ public interface ClientService {
 
     List<ClientResponse> findAll();
 
-    ClientResponse update(int clientId, ClientUpdateCommand clientUpdateCommand);
+    void update(int clientId, ClientUpdateCommand clientUpdateCommand);
 
     void delete(int clientId);
 }

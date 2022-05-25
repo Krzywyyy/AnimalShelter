@@ -49,9 +49,9 @@ public class ClientController {
 
     @PutMapping("/{clientId}")
     @ResponseStatus(HttpStatus.OK)
-    public ClientResponse update(@PathVariable int clientId, @RequestBody ClientUpdateCommand clientUpdateCommand) {
+    public void update(@PathVariable int clientId, @RequestBody ClientUpdateCommand clientUpdateCommand) {
         logger.debug(String.format("[HTTP_PUT]: Updating client with id = [%s], new values = [%s]", clientId, clientUpdateCommand.toString()));
-        return clientService.update(clientId, clientUpdateCommand);
+        clientService.update(clientId, clientUpdateCommand);
     }
 
     @DeleteMapping("/{clientId}")

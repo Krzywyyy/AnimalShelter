@@ -51,9 +51,9 @@ public class EmployeeController {
 
     @PutMapping("/{employeeId}")
     @ResponseStatus(HttpStatus.OK)
-    public EmployeeResponse update(@PathVariable int employeeId, @RequestBody EmployeeUpdateCommand employeeUpdateCommand) {
+    public void update(@PathVariable int employeeId, @RequestBody EmployeeUpdateCommand employeeUpdateCommand) {
         logger.debug(String.format("[HTTP_PUT]: Updating employee with id = [%s], new values = [%s]", employeeId, employeeUpdateCommand.toString()));
-        return employeeService.update(employeeId, employeeUpdateCommand);
+        employeeService.update(employeeId, employeeUpdateCommand);
     }
 
     @PutMapping("/{employeeId}/dismiss")

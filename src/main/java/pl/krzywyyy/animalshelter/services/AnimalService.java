@@ -13,7 +13,7 @@ public interface AnimalService {
 
     List<AnimalResponse> findAll();
 
-    AnimalResponse update(int animalId, AnimalUpdateCommand animalUpdateCommand);
+    void update(int animalId, AnimalUpdateCommand animalUpdateCommand);
 
     void delete(int animalId);
 }

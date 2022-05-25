@@ -49,14 +49,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeResponse update(int employeeId, EmployeeUpdateCommand employeeUpdateCommand) {
+    public void update(int employeeId, EmployeeUpdateCommand employeeUpdateCommand) {
         final Employee employee = employeeRepository.getById(employeeId);
         employee.setFirstName(employeeUpdateCommand.getFirstName());
         employee.setSurname(employeeUpdateCommand.getSurname());
         employee.setPhoneNumber(employeeUpdateCommand.getPhoneNumber());
         employee.setEmail(employeeUpdateCommand.getEmail());
-        final Employee updated = employeeRepository.save(employee);
-        return employeeMapper.entityToResponse(updated);
+        employeeRepository.save(employee);
     }
 
     @Override

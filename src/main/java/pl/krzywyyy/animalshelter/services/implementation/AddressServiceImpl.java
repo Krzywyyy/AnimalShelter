@@ -46,7 +46,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public AddressResponse update(int addressId, AddressUpdateCommand addressUpdateCommand) {
+    public void update(int addressId, AddressUpdateCommand addressUpdateCommand) {
         addressValidator.validate(addressUpdateCommand);
 
         final Address address = addressRepository.getById(addressId);
@@ -55,8 +55,7 @@ public class AddressServiceImpl implements AddressService {
         address.setApartmentNumber(addressUpdateCommand.getApartmentNumber());
         address.setPostalCode(addressUpdateCommand.getPostalCode());
         address.setCity(addressUpdateCommand.getCity());
-        final Address updated = addressRepository.save(address);
-        return addressMapper.entityToResponse(updated);
+        addressRepository.save(address);
     }
 
     @Override

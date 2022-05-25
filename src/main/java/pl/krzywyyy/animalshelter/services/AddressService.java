@@ -13,7 +13,7 @@ public interface AddressService {
 
     List<AddressResponse> findAll();
 
-    AddressResponse update(int addressId, AddressUpdateCommand addressUpdateCommand);
+    void update(int addressId, AddressUpdateCommand addressUpdateCommand);
 
     void delete(int addressId);
 }

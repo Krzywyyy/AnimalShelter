@@ -49,9 +49,9 @@ public class AnimalController {
 
     @PutMapping("/{animalId}")
     @ResponseStatus(HttpStatus.OK)
-    public AnimalResponse update(@PathVariable int animalId, @RequestBody AnimalUpdateCommand animalUpdateCommand) {
+    public void update(@PathVariable int animalId, @RequestBody AnimalUpdateCommand animalUpdateCommand) {
         logger.debug(String.format("[HTTP_PUT]: Updating animal with id = [%s], new values = [%s]", animalId, animalUpdateCommand.toString()));
-        return animalService.update(animalId, animalUpdateCommand);
+        animalService.update(animalId, animalUpdateCommand);
     }
 
     @DeleteMapping("/{animalId}")
