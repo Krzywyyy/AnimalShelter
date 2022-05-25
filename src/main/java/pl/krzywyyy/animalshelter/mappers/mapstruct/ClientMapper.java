@@ -30,7 +30,6 @@ public interface ClientMapper {
     @Mappings({
             @Mapping(source = "addresses", target = "addressesIds"),
             @Mapping(source = "adoptions", target = "adoptionsIds")
-    }
-    )
+    })
     ClientResponse entityToResponse(Client client);
 }

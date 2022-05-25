@@ -17,5 +17,5 @@ public class AnimalResponse {
     private Date birthDate;
     private List<String> diseases;
     private int age;
-    private int adoptionId;
+    private Integer adoptionId;
 }

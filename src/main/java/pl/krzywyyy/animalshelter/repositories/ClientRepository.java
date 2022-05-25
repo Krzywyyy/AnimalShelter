@@ -7,8 +7,11 @@ import pl.krzywyyy.animalshelter.repositories.jpamapstructfix.ById;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
+    //    @ById
+//    default Client findClientById(Integer clientId) {
+//        return getById(clientId);
+//    }
     @ById
-    default Client findClientById(Integer clientId) {
-        return getById(clientId);
-    }
+    @Override
+    Client getById(Integer integer);
 }

@@ -1,15 +1,15 @@
 package pl.krzywyyy.animalshelter.model.dto.commands.create;
 
 import lombok.Getter;
-import lombok.ToString;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@ToString
-public class CreateAddressCommand {
-    private String streetName;
-    private String buildingNumber;
-    private String apartmentNumber;
-    private String postalCode;
-    private String city;
-    private int clientId;
+@RequiredArgsConstructor
+public final class CreateAddressCommand {
+    private final String streetName;
+    private final String buildingNumber;
+    private final String apartmentNumber;
+    private final String postalCode;
+    private final String city;
+    private final int clientId;
 }

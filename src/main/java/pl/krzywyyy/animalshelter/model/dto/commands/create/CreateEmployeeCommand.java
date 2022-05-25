@@ -1,19 +1,19 @@
 package pl.krzywyyy.animalshelter.model.dto.commands.create;
 
 import lombok.Getter;
-import lombok.ToString;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
 @Getter
-@ToString
-public class CreateEmployeeCommand {
-    private String firstName;
-    private String surname;
-    private String email;
-    private String phoneNumber;
-    private String password;
-    private Date employmentDate;
-    private String jobPosition;
-    private float salary;
+@RequiredArgsConstructor
+public final class CreateEmployeeCommand {
+    private final String firstName;
+    private final String surname;
+    private final String phoneNumber;
+    private final String email;
+    private final String password;
+    private final Date employmentDate;
+    private final String jobPosition;
+    private final float salary;
 }

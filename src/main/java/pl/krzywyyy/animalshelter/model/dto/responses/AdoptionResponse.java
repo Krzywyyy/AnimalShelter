@@ -8,7 +8,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class AdoptionResponse {
-    private Date date;
+    private Date adoptionDate;
     private int animalId;
     private int clientId;
     private int employeeId;

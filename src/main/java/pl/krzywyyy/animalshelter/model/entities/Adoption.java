@@ -24,8 +24,8 @@ public class Adoption extends AbstractEntity {
     private Date adoptionDate;
 
     @NotNull
-    @OneToOne
-    @JoinColumn(name = "animal_id", referencedColumnName = "id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "animal_id")
     private Animal animal;
 
     @NotNull

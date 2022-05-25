@@ -15,6 +15,7 @@ import pl.krzywyyy.animalshelter.repositories.RoleRepository;
 @Mapper(componentModel = "spring",
         injectionStrategy = InjectionStrategy.CONSTRUCTOR,
         uses = {
+                AbstractMapper.class,
                 PasswordMapper.class,
                 RoleRepository.class
         }
@@ -29,6 +30,9 @@ public interface EmployeeMapper {
     })
     Employee requestToEntity(CreateEmployeeCommand createEmployeeCommand);
 
+    @Mappings({
+            @Mapping(source = "supervisedAdoptions", target = "supervisedAdoptionsIds")
+    })
     EmployeeResponse entityToResponse(Employee employee);
 
     EmployeeDetails entityToDetails(Employee employee);

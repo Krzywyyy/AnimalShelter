@@ -31,8 +31,7 @@ CREATE TABLE animal
     name VARCHAR(255) NOT NULL,
     type VARCHAR(255) NOT NULL,
     gender VARCHAR(255) NOT NULL,
-    birth_date TIMESTAMP,
-    adoption_id INTEGER
+    birth_date TIMESTAMP
 );
 
 CREATE TABLE disease
@@ -54,9 +53,6 @@ CREATE TABLE adoption
     CONSTRAINT FK_adoption_client FOREIGN KEY (client_id) REFERENCES app_user (id) ON DELETE CASCADE,
     CONSTRAINT FK_adoption_employee FOREIGN KEY (employee_id) REFERENCES app_user (id) ON DELETE CASCADE
 );
-
-ALTER TABLE animal
-    ADD CONSTRAINT FK_animal_adoption FOREIGN KEY (adoption_id) REFERENCES adoption (id) ON DELETE SET NULL;
 
 CREATE TABLE role
 (

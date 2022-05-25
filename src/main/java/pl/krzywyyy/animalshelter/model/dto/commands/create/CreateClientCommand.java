@@ -1,20 +1,14 @@
 package pl.krzywyyy.animalshelter.model.dto.commands.create;
 
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@ToString
-public class CreateClientCommand {
-    private String firstName;
-    private String surname;
-    private String phoneNumber;
-    private String email;
-    private String password;
-
-    @Setter
-    private List<String> roles;
+@RequiredArgsConstructor
+public final class CreateClientCommand {
+    private final String firstName;
+    private final String surname;
+    private final String phoneNumber;
+    private final String email;
+    private final String password;
 }

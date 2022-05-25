@@ -22,5 +22,8 @@ public interface AnimalMapper {
     })
     Animal requestToEntity(CreateAnimalCommand createAnimalCommand);
 
+    @Mappings({
+            @Mapping(source = "adoption.id", target = "adoptionId")
+    })
     AnimalResponse entityToResponse(Animal animal);
 }

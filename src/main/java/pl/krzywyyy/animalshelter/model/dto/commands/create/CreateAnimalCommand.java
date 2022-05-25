@@ -1,17 +1,17 @@
 package pl.krzywyyy.animalshelter.model.dto.commands.create;
 
 import lombok.Getter;
-import lombok.ToString;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
 @Getter
-@ToString
-public class CreateAnimalCommand {
-    private String name;
-    private String type;
-    private String gender;
-    private Date birthDate;
-    private List<String> diseases;
+@RequiredArgsConstructor
+public final class CreateAnimalCommand {
+    private final String name;
+    private final String type;
+    private final String gender;
+    private final Date birthDate;
+    private final List<String> diseases;
 }
