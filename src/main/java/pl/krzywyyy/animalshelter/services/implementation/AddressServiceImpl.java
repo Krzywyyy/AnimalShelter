@@ -24,12 +24,10 @@ public class AddressServiceImpl implements AddressService {
     private final Logger logger;
 
     @Override
-    public AddressResponse save(CreateAddressCommand createAddressCommand) {
+    public void save(CreateAddressCommand createAddressCommand) {
         logger.debug(String.format("Saving address = [%s] to database", createAddressCommand.toString()));
-        final Address newAddress = addressMapper.requestToEntity(createAddressCommand);
-        final Address updated = addressRepository.save(newAddress);
-        logger.debug(String.format("Address successfully created with id = [%s]", updated.getId()));
-        return addressMapper.entityToResponse(updated);
+        final Address address = addressMapper.requestToEntity(createAddressCommand);
+        addressRepository.save(address);
     }
 
     @Override

@@ -7,7 +7,7 @@ import pl.krzywyyy.animalshelter.model.dto.responses.AnimalResponse;
 import java.util.List;
 
 public interface AnimalService {
-    AnimalResponse save(CreateAnimalCommand createAnimalCommand);
+    void save(CreateAnimalCommand createAnimalCommand);
 
     AnimalResponse findById(int animalId);
 

@@ -27,11 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final Logger logger;
 
     @Override
-    public EmployeeResponse save(CreateEmployeeCommand createEmployeeCommand) {
+    public void save(CreateEmployeeCommand createEmployeeCommand) {
+        logger.debug(String.format("Saving employee = [%s] to database", createEmployeeCommand.toString()));
         final Employee employee = employeeMapper.requestToEntity(createEmployeeCommand);
         employee.setRoles(List.of(roleRepository.findByName(SecurityRole.ROLE_EMPLOYEE.name())));
-        return employeeMapper.entityToResponse(
-                employeeRepository.save(employee));
+        employeeRepository.save(employee);
     }
 
     @Override

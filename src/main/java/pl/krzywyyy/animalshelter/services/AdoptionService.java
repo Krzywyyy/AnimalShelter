@@ -6,7 +6,7 @@ import pl.krzywyyy.animalshelter.model.dto.responses.AdoptionResponse;
 import java.util.List;
 
 public interface AdoptionService {
-    AdoptionResponse save(CreateAdoptionCommand createAdoptionCommand);
+    void save(CreateAdoptionCommand createAdoptionCommand);
 
     AdoptionResponse findById(int adoptionId);
 

@@ -26,9 +26,9 @@ public class AdoptionController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AdoptionResponse save(@RequestBody CreateAdoptionCommand createAdoptionCommand) {
+    public void save(@RequestBody CreateAdoptionCommand createAdoptionCommand) {
         logger.debug(String.format("[HTTP_POST]: Create new adoption = [%s]", createAdoptionCommand.toString()));
-        return adoptionService.save(createAdoptionCommand);
+        adoptionService.save(createAdoptionCommand);
     }
 
     @GetMapping

@@ -7,7 +7,7 @@ import pl.krzywyyy.animalshelter.model.dto.responses.AddressResponse;
 import java.util.List;
 
 public interface AddressService {
-    AddressResponse save(CreateAddressCommand createAddressCommand);
+    void save(CreateAddressCommand createAddressCommand);
 
     AddressResponse findById(int addressId);
 

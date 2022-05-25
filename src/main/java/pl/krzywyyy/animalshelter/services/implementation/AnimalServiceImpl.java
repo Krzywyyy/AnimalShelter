@@ -22,12 +22,10 @@ public class AnimalServiceImpl implements AnimalService {
     private final Logger logger;
 
     @Override
-    public AnimalResponse save(CreateAnimalCommand createAnimalCommand) {
-        return animalMapper.entityToResponse(
-                animalRepository.save(
-                        animalMapper.requestToEntity(createAnimalCommand)
-                )
-        );
+    public void save(CreateAnimalCommand createAnimalCommand) {
+        logger.debug(String.format("Saving animal = [%s] to database", createAnimalCommand.toString()));
+        final Animal animal = animalMapper.requestToEntity(createAnimalCommand);
+        animalRepository.save(animal);
     }
 
     @Override

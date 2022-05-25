@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface EmployeeService {
-    EmployeeResponse save(CreateEmployeeCommand createEmployeeCommand);
+    void save(CreateEmployeeCommand createEmployeeCommand);
 
     EmployeeResponse findById(int employeeId);
 

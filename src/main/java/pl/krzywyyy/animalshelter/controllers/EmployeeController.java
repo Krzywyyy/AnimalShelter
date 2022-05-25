@@ -30,9 +30,9 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EmployeeResponse save(@RequestBody CreateEmployeeCommand createEmployeeCommand) {
+    public void save(@RequestBody CreateEmployeeCommand createEmployeeCommand) {
         logger.debug(String.format("[HTTP_POST]: Create new employee = [%s]", createEmployeeCommand.toString()));
-        return employeeService.save(createEmployeeCommand);
+        employeeService.save(createEmployeeCommand);
     }
 
     @GetMapping

@@ -25,11 +25,11 @@ public class ClientServiceImpl implements ClientService {
     private final Logger logger;
 
     @Override
-    public ClientResponse save(CreateClientCommand createClientCommand) {
+    public void save(CreateClientCommand createClientCommand) {
+        logger.debug(String.format("Saving client = [%s] to database", createClientCommand.toString()));
         final Client client = clientMapper.requestToEntity(createClientCommand);
         client.setRoles(List.of(roleRepository.findByName(SecurityRole.ROLE_CLIENT.name())));
-        return clientMapper.entityToResponse(
-                clientRepository.save(client));
+        clientRepository.save(client);
     }
 
     @Override

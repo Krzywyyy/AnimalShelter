@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.krzywyyy.animalshelter.mappers.mapstruct.AdoptionMapper;
 import pl.krzywyyy.animalshelter.model.dto.commands.create.CreateAdoptionCommand;
 import pl.krzywyyy.animalshelter.model.dto.responses.AdoptionResponse;
+import pl.krzywyyy.animalshelter.model.entities.Adoption;
 import pl.krzywyyy.animalshelter.repositories.AdoptionRepository;
 import pl.krzywyyy.animalshelter.services.AdoptionService;
 
@@ -20,12 +21,10 @@ public class AdoptionServiceImpl implements AdoptionService {
     private final Logger logger;
 
     @Override
-    public AdoptionResponse save(CreateAdoptionCommand createAdoptionCommand) {
-        return adoptionMapper.entityToResponse(
-                adoptionRepository.save(
-                        adoptionMapper.requestToEntity(createAdoptionCommand)
-                )
-        );
+    public void save(CreateAdoptionCommand createAdoptionCommand) {
+        logger.debug(String.format("Saving adoption = [%s] to database", createAdoptionCommand.toString()));
+        final Adoption adoption = adoptionMapper.requestToEntity(createAdoptionCommand);
+        adoptionRepository.save(adoption);
     }
 
     @Override

@@ -28,9 +28,9 @@ public class AnimalController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AnimalResponse save(@RequestBody CreateAnimalCommand createAnimalCommand) {
+    public void save(@RequestBody CreateAnimalCommand createAnimalCommand) {
         logger.debug(String.format("[HTTP_POST]: Create new animal = [%s]", createAnimalCommand.toString()));
-        return animalService.save(createAnimalCommand);
+        animalService.save(createAnimalCommand);
     }
 
     @GetMapping

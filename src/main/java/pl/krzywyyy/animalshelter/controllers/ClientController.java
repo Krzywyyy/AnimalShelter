@@ -28,9 +28,9 @@ public class ClientController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ClientResponse save(@RequestBody CreateClientCommand createClientCommand) {
+    public void save(@RequestBody CreateClientCommand createClientCommand) {
         logger.debug(String.format("[HTTP_POST]: Create new client = [%s]", createClientCommand.toString()));
-        return clientService.save(createClientCommand);
+        clientService.save(createClientCommand);
     }
 
     @GetMapping

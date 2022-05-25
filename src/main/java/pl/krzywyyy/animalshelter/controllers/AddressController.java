@@ -28,9 +28,9 @@ public class AddressController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AddressResponse save(@RequestBody CreateAddressCommand createAddressCommand) {
+    public void save(@RequestBody CreateAddressCommand createAddressCommand) {
         logger.debug(String.format("[HTTP_POST]: Create new address = [%s]", createAddressCommand.toString()));
-        return addressService.save(createAddressCommand);
+        addressService.save(createAddressCommand);
     }
 
     @GetMapping
